@@ -5,30 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Menu</title>
     <style>
+        /* Importing the Montserrat font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
             background-color: #1e1e2f;
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
         }
         .menu-container {
             text-align: center;
+            width: 100%;
         }
         .menu-title {
             font-size: 3rem;
             margin-bottom: 2rem;
         }
         .menu-button {
-            display: inline-block;
+            display: block;
             background-color: #4caf50;
             color: white;
-            padding: 1rem 2rem;
-            font-size: 1.5rem;
-            margin: 0.5rem;
+            padding: 1.5rem 0; /* Increased vertical padding */
+            font-size: 2rem; /* Increased font size */
+            margin: 0.8rem auto; /* Adjusted margin for better spacing */
+            width: 100%; /* Makes the buttons fill the width */
+            max-width: 400px; /* Prevents buttons from getting too wide */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -44,7 +51,7 @@
 </head>
 <body>
     <div class="menu-container">
-        <h1 class="menu-title">Game Menu</h1>
+        <h1 class="menu-title">Menu</h1>
         <button class="menu-button" onclick="startGame()">Start Game</button>
         <button class="menu-button" onclick="showSettings()">Settings</button>
         <button class="menu-button" onclick="exitGame()">Exit</button>
@@ -61,7 +68,7 @@
 
         function exitGame() {
             if (confirm('Are you sure you want to exit?')) {
-                alert('Exiting game. See you next time!');
+                window.close();
             }
         }
     </script>
