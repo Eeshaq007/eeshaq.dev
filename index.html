@@ -3,24 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Under Construction</title>
+    <title>Game Menu</title>
     <style>
         body {
             margin: 0;
-            background-color: black;
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            font-family: Arial, sans-serif;
+        }
+        .menu-container {
             text-align: center;
+        }
+        .menu-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        .menu-button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .menu-button:hover {
+            background-color: #45a049;
+        }
+        .menu-button:active {
+            background-color: #3e8e41;
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1>This website is being worked on, come back later!</h1>
+    <div class="menu-container">
+        <h1 class="menu-title">Game Menu</h1>
+        <button class="menu-button" onclick="startGame()">Start Game</button>
+        <button class="menu-button" onclick="showSettings()">Settings</button>
+        <button class="menu-button" onclick="exitGame()">Exit</button>
     </div>
+
+    <script>
+        function startGame() {
+            alert('Starting the game...');
+        }
+
+        function showSettings() {
+            alert('Opening settings...');
+        }
+
+        function exitGame() {
+            if (confirm('Are you sure you want to exit?')) {
+                alert('Exiting game. See you next time!');
+            }
+        }
+    </script>
 </body>
 </html>
