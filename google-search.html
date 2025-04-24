@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Search</title>
   <style>
     body {
       margin: 0;
-      background-color: black;
+      background: #111;
       color: white;
       font-family: Arial, sans-serif;
     }
 
-    #search-area {
+    #search-box {
       padding: 20px;
+      text-align: center;
     }
 
     iframe {
       width: 100%;
       height: 80vh;
       border: none;
-      background: #111;
+      background-color: #333;
+      display: none; /* Start hidden until a result is clicked */
+    }
+
+    /* Mobile-friendly styles */
+    @media (max-width: 768px) {
+      iframe {
+        height: 60vh;
+      }
+      #search-box {
+        padding: 10px;
+      }
     }
   </style>
 
-  <!-- Your Google Search Engine -->
+  <!-- Load Google Programmable Search Engine -->
   <script async src="https://cse.google.com/cse.js?cx=307695310d3a54377"></script>
 </head>
 <body>
-  <div id="search-area" class="gcse-search"></div>
-  <iframe id="preview" src=""></iframe>
+  <div id="search-box" class="gcse-search"></div>
+  <iframe id="viewer" src=""></iframe>
 
   <script>
-    // Intercept link clicks and show inside iframe
     document.addEventListener('click', function (e) {
       const link = e.target.closest('a');
-      if (link && link.href && link.target === "_blank") {
+      if (link && link.href) {
         e.preventDefault();
-        const preview = document.getElementById('preview');
-        preview.src = link.href;
+        const viewer = document.getElementById('viewer');
+        viewer.style.display = 'block'; // Show iframe when a link is clicked
+        viewer.src = link.href;
       }
     });
   </script>
