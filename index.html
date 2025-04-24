@@ -1,76 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Menu</title>
-    <style>
-        /* Importing the Montserrat font from Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-        
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
-            background-color: #1e1e2f;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
-        .menu-container {
-            text-align: center;
-            width: 100%;
-        }
-        .menu-title {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-        }
-        .menu-button {
-            display: block;
-            background-color: #4caf50;
-            color: white;
-            padding: 1.5rem 0; /* Increased vertical padding */
-            font-size: 2rem; /* Increased font size */
-            margin: 0.8rem auto; /* Adjusted margin for better spacing */
-            width: 100%; /* Makes the buttons fill the width */
-            max-width: 400px; /* Prevents buttons from getting too wide */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .menu-button:hover {
-            background-color: #45a049;
-        }
-        .menu-button:active {
-            background-color: #3e8e41;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .login-button {
+      padding: 12px 24px;
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .login-button:hover {
+      background: #fff;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
-    <div class="menu-container">
-        <h1 class="menu-title">Menu</h1>
-        <button class="menu-button" onclick="startGame()">Start Game</button>
-        <button class="menu-button" onclick="showSettings()">Settings</button>
-        <button class="menu-button" onclick="exitGame()">Exit</button>
-    </div>
-
-    <script>
-        function startGame() {
-            alert('Starting the game...');
-        }
-
-        function showSettings() {
-            alert('Opening settings...');
-        }
-
-        function exitGame() {
-            if (confirm('Are you sure you want to exit?')) {
-                window.close();
-            }
-        }
-    </script>
+  <button class="login-button">Login</button>
 </body>
 </html>
