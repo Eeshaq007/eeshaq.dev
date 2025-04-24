@@ -13,7 +13,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 100vh;  /* Ensure the body takes full viewport height */
+      overflow: hidden;
     }
 
     #search-box {
@@ -57,6 +59,21 @@
     .gcse-searchresults {
       display: none;
     }
+
+    /* Back to search button */
+    #back-to-search {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px 20px;
+      background-color: #444;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 20;
+      display: none; /* Hidden initially */
+    }
+
   </style>
 
   <!-- Load Google Programmable Search Engine -->
@@ -66,20 +83,36 @@
   <div id="search-box" class="gcse-search"></div>
   <iframe id="viewer" src=""></iframe>
   <div id="loader">Loading...</div>
+  <button id="back-to-search" onclick="backToSearch()">Back to Search</button>
 
   <script>
     // Function to show iframe and load the content
     function loadIframe(url) {
       const viewer = document.getElementById('viewer');
       const loader = document.getElementById('loader');
+      const backButton = document.getElementById('back-to-search');
+      
       viewer.style.display = 'none'; // Hide iframe initially
       loader.style.display = 'block'; // Show loading spinner
+      backButton.style.display = 'block'; // Show back button
 
       setTimeout(() => {
         viewer.src = url;  // Load the content
         viewer.style.display = 'block'; // Show iframe after loading
         loader.style.display = 'none'; // Hide loading spinner
       }, 300); // Slight delay before loading the content
+    }
+
+    // Function to go back to search box
+    function backToSearch() {
+      const searchBox = document.getElementById('search-box');
+      const viewer = document.getElementById('viewer');
+      const backButton = document.getElementById('back-to-search');
+      
+      searchBox.style.display = 'block'; // Show search box again
+      viewer.style.display = 'none'; // Hide iframe
+      backButton.style.display = 'none'; // Hide back button
+      viewer.src = ''; // Clear iframe content
     }
 
     document.addEventListener('click', function (e) {
