@@ -1,45 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Google Search</title>
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
+<script>
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('a');
+    if (!link || !link.href) return;
 
-    #search-box {
-      padding: 10px;
+    // Check if the link is part of the Google CSE results
+    if (link.closest('.gsc-webResult')) {
+      e.preventDefault();
+      document.getElementById('viewer').src = link.href;
     }
-
-    iframe {
-      width: 100%;
-      height: 80vh;
-      border: none;
-    }
-
-    .gcse-searchresults-only {
-      background-color: black;
-    }
-  </style>
-  <script async src="https://cse.google.com/cse.js?cx=307695310d3a54377"></script>
-</head>
-<body>
-  <div id="search-box" class="gcse-search"></div>
-  <iframe id="viewer" src=""></iframe>
-
-  <script>
-    // Listen for clicks on search results and load them in iframe
-    document.addEventListener('click', function (e) {
-      const link = e.target.closest('a');
-      if (link && link.href && link.target === "_blank") {
-        e.preventDefault();
-        document.getElementById('viewer').src = link.href;
-      }
-    });
-  </script>
-</body>
-</html>
+  });
+</script>
