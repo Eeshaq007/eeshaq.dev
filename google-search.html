@@ -51,6 +51,11 @@
       font-size: 20px;
       display: none;
     }
+
+    /* Hide search results initially */
+    .gcse-searchresults {
+      display: none;
+    }
   </style>
 
   <!-- Load Google Programmable Search Engine -->
@@ -80,6 +85,9 @@
       const link = e.target.closest('a');
       if (link && link.href) {
         e.preventDefault(); // Prevent the default action
+
+        // Hide the search box and results
+        document.getElementById('search-box').style.display = 'none';
 
         // Only load links that are search results
         if (link.closest('.gsc-webResult')) {
