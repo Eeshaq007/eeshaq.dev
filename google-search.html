@@ -2,22 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Google Search Inside Site</title>
+  <title>Google Search</title>
   <style>
     body {
-      background-color: black;
+      margin: 0;
+      background: black;
       color: white;
       font-family: Arial, sans-serif;
-      padding: 20px;
     }
-    .gcse-search {
-      filter: invert(1); /* Lightens the default Google styling */
+
+    #search-box {
+      padding: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+    }
+
+    .gcse-searchresults-only {
+      background-color: black;
     }
   </style>
-  <script async src="https://cse.google.com/cse.js?cx=e5fb2c235dc394be0"></script>
+  <script async src="https://cse.google.com/cse.js?cx=307695310d3a54377"></script>
 </head>
 <body>
-  <h1>Search Google</h1>
-  <div class="gcse-search"></div>
+  <div id="search-box" class="gcse-search"></div>
+  <iframe id="viewer" src=""></iframe>
+
+  <script>
+    // Listen for clicks on search results and load them in iframe
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link && link.href && link.target === "_blank") {
+        e.preventDefault();
+        document.getElementById('viewer').src = link.href;
+      }
+    });
+  </script>
 </body>
 </html>
