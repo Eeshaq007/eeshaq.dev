@@ -4,39 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login</title>
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    background-color: #555; /* Gray background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-  }
-  .login-box {
-    background-color: #777;
-    padding: 40px;
-    border-radius: 10px;
-    text-align: center;
-  }
-  input {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    width: 200px;
-    border-radius: 5px;
-    border: none;
-  }
-  button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    background-color: #333;
-    color: white;
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="login-box">
@@ -46,18 +14,6 @@
     <button onclick="login()">Login</button>
   </div>
 
-<script>
-function login() {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-
-  // Simple client-side login check (for demo purposes)
-  if(username === "user" && password === "pass") {
-    window.location.href = "duck.html"; // redirect to proxy page
-  } else {
-    alert("Invalid credentials");
-  }
-}
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
