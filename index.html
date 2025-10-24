@@ -4,16 +4,75 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login</title>
-<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Full-page gray background and centering */
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #555; /* Gray background */
+    font-family: Arial, sans-serif;
+  }
+
+  /* Login box container */
+  .login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #777; /* Slightly lighter gray */
+    padding: 40px;
+    border-radius: 10px;
+  }
+
+  /* Inputs styling */
+  input {
+    width: 250px;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+  }
+
+  /* Login button styling */
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #111;
+  }
+</style>
 </head>
 <body>
   <div class="login-box">
-    <h2>Login</h2>
     <input type="text" placeholder="Username" id="username">
     <input type="password" placeholder="Password" id="password">
     <button onclick="login()">Login</button>
   </div>
 
-<script src="js/main.js"></script>
+<script>
+function login() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Simple demo login check
+  if(username === "user" && password === "pass") {
+    window.location.href = "duck.html"; // Redirect to DuckDuckGo viewer
+  } else {
+    alert("Invalid credentials");
+  }
+}
+</script>
 </body>
 </html>
