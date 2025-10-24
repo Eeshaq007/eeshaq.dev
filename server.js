@@ -16,7 +16,7 @@ app.use(morgan('combined'));
 const PORT = process.env.PORT || 3000;
 // Allowed hostnames (only proxy requests to these hosts). Add hosts you trust.
 // You can set an environment variable PROXY_ALLOWLIST with comma-separated hostnames
-const envAllow = process.env.PROXY_ALLOWLIST || 'duckduckgo.com,example.com';
+const envAllow = process.env.PROXY_ALLOWLIST || 'duckduckgo.com';
 const ALLOWLIST = envAllow.split(',').map(h => h.trim()).filter(Boolean);
 
 // helper: validate and normalize URL
