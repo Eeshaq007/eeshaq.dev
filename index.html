@@ -1,77 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
-<style>
-  /* Full-page gray background and centering */
-  body, html {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #555; /* Gray background */
-    font-family: Arial, sans-serif;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      background-color: #222; /* dark gray background */
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      zoom: 1.2; /* zooms in the whole page */
+    }
 
-  /* Login box container */
-  .login-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #777; /* Slightly lighter gray */
-    padding: 40px;
-    border-radius: 10px;
-  }
+    .login-box {
+      background-color: #333; /* gray box */
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
 
-  /* Inputs styling */
-  input {
-    width: 250px;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-  }
+    .login-box:hover {
+      transform: scale(1.05);
+    }
 
-  /* Login button styling */
-  button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background: #555;
+      color: white;
+      font-size: 16px;
+    }
 
-  button:hover {
-    background-color: #111;
-  }
-</style>
+    input::placeholder {
+      color: #ccc;
+    }
+
+    button {
+      background: none;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: white;
+      color: black;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #eee;
+    }
+  </style>
 </head>
 <body>
   <div class="login-box">
-    <input type="text" placeholder="Username" id="username">
-    <input type="password" placeholder="Password" id="password">
+    <h2>Login</h2>
+    <input type="text" placeholder="Username" id="username"><br>
+    <input type="password" placeholder="Password" id="password"><br>
     <button onclick="login()">Login</button>
   </div>
 
-<script>
-function login() {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-  // Simple demo login check
-  if(username === "user" && password === "pass") {
-    window.location.href = "duck.html"; // Redirect to DuckDuckGo viewer
-  } else {
-    alert("Invalid credentials");
-  }
+      // Demo login credentials
+      if(username === "user" && password === "pass") {
+        window.location.href = "duck.html"; // Redirect to DuckDuckGo viewer
+      } else {
+        alert("Invalid credentials");
+      }
+    }
+  </script>
+</body>
+</html>
 }
 </script>
 </body>
