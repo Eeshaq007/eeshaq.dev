@@ -1,57 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
   <style>
     body {
-      margin: 0;
-      height: 100vh;
-      background-color: #000;
+      background-color: #222; /* dark gray background */
+      color: white;
+      font-family: Arial, sans-serif;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #fff;
-      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      zoom: 1.2; /* zooms in the whole page */
+    }
+
+    .login-box {
+      background-color: #333; /* gray box */
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .login-box:hover {
+      transform: scale(1.05);
     }
 
     input {
+      width: 80%;
       padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #fff;
-      background: transparent;
-      color: #fff;
-      width: 200px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background: #555;
+      color: white;
+      font-size: 16px;
     }
 
-    .login-button {
-      padding: 12px 24px;
-      background: transparent;
-      border: 2px solid #fff;
-      color: #fff;
-      font-size: 18px;
+    input::placeholder {
+      color: #ccc;
+    }
+
+    button {
+      background: none;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 16px;
       cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: white;
+      color: black;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #eee;
+    }
+
+    #message {
+      margin-top: 15px;
+      color: lightgreen;
+      font-weight: bold;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h2>Login</h2>
-  <input type="text" id="username" placeholder="Username" />
-  <input type="password" id="password" placeholder="Password" />
-  <button class="login-button" onclick="login()">Login</button>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input id="username" type="text" placeholder="Username"><br>
+    <input id="password" type="password" placeholder="Password"><br>
+    <button onclick="checkLogin()">Login</button>
+    <div id="message"></div>
+  </div>
 
   <script>
-    function login() {
+    function checkLogin() {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
+      const message = document.getElementById('message');
 
-      // ✅ Redirect to your own embedded Google search page
       if (username === 'EeshaqB' && password === 'Eeshaq2014#?') {
-        window.location.href = 'google-search.html';
+        message.style.display = 'block';
+        message.style.color = 'lightgreen';
+        message.textContent = 'Login successful!';
+        setTimeout(() => {
+          window.location.href = "https://google.com"; // redirect after 1.5s
+        }, 1500);
       } else {
-        alert('Invalid login');
+        message.style.display = 'block';
+        message.style.color = 'red';
+        message.textContent = 'Incorrect username or password.';
       }
     }
   </script>
