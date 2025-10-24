@@ -1,106 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Login</title>
   <style>
     body {
-      background-color: #222; /* dark gray background */
-      color: white;
+      margin: 0;
       font-family: Arial, sans-serif;
+      background: #1e1e1e;
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
-      zoom: 1.2; /* zooms in the whole page */
+      overflow: hidden;
     }
-
-    .login-box {
-      background-color: #333; /* gray box */
+    .login-container {
+      background: #2b2b2b;
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      width: 300px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       text-align: center;
-      transition: transform 0.3s ease;
+      transform: scale(1.2);
     }
-
-    .login-box:hover {
-      transform: scale(1.05);
-    }
-
     input {
-      width: 80%;
+      display: block;
+      margin: 10px auto;
       padding: 10px;
-      margin: 10px 0;
+      width: 80%;
       border: none;
       border-radius: 6px;
-      background: #555;
+      background: #3b3b3b;
       color: white;
-      font-size: 16px;
     }
-
-    input::placeholder {
-      color: #ccc;
-    }
-
     button {
-      background: none;
-      color: white;
-      border: 2px solid white;
+      margin-top: 15px;
       padding: 10px 20px;
+      background: none;
+      border: 2px solid white;
       border-radius: 6px;
-      font-size: 16px;
+      color: white;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: 0.3s;
     }
-
     button:hover {
       background: white;
       color: black;
     }
-
-    h2 {
-      margin-bottom: 20px;
-      color: #eee;
-    }
-
-    #message {
-      margin-top: 15px;
-      color: lightgreen;
-      font-weight: bold;
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
       display: none;
     }
   </style>
 </head>
 <body>
-  <div class="login-box">
+  <div class="login-container" id="loginBox">
     <h2>Login</h2>
-    <input id="username" type="text" placeholder="Username"><br>
-    <input id="password" type="password" placeholder="Password"><br>
-    <button onclick="checkLogin()">Login</button>
-    <div id="message"></div>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
   </div>
 
-  <script>
-    function checkLogin() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      const message = document.getElementById('message');
+  <iframe id="duckFrame" src="https://duckduckgo.com"></iframe>
 
-      if (username === 'EeshaqB' && password === 'Eeshaq2014#?') {
-        message.style.display = 'block';
-        message.style.color = 'lightgreen';
-        message.textContent = 'Login successful!';
-        setTimeout(() => {
-          window.location.href = "https://google.com"; // redirect after 1.5s
-        }, 1500);
+  <script>
+    function login() {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      if (user === "EeshaqB" && pass === "Eeshaq2014#?") {
+        document.getElementById('loginBox').style.display = "none";
+        const iframe = document.getElementById('duckFrame');
+        iframe.style.display = "block";
+        iframe.src = "https://duckduckgo.com";
       } else {
-        message.style.display = 'block';
-        message.style.color = 'red';
-        message.textContent = 'Incorrect username or password.';
+        alert("Incorrect username or password");
       }
     }
   </script>
