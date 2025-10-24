@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Proxied Viewer</title>
+  <style>
+    html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0c;color:#fff}
+    #top{display:flex;gap:8px;padding:12px;background:#111}
+    #q{flex:1;padding:10px;border-radius:8px;border:1px solid #333;background:#111;color:#fff}
+    button{padding:9px 12px;border-radius:8px;border:1px solid #444;background:#222;color:#fff;cursor:pointer}
+    iframe{position:fixed;top:56px;left:0;right:0;bottom:0;width:100%;height:calc(100% - 56px);border:0;display:none}
+    #msg{padding:12px;text-align:center;color:#bbb}
+  </style>
+</head>
+<body>
+  <div id="top">
+    <input id="q" placeholder="Search or paste URL (e.g. duckduckgo.com)"/>
+    <button onclick="openProxy()">Open</button>
+    <button onclick="openDirect()">Open Direct</button>
+  </div>
+  <div id="msg">Use the input above to open a page via the proxy. Allowed hosts: configured on the server.</div>
+  <iframe id="viewer" sandbox="allow-forms allow-scripts allow-popups allow-same-origin"></iframe>
+
+<script>
+  const PROXY_BASE = 'https://duckduckgo.com'; // <<< REPLACE this
+  const viewer = document.getElementById('viewer');
+
+  function makeTarget(val) {
+    // if val looks like a URL, use it; otherwise default to search on duckduckgo
+    try {
+      const u = new URL(val);
+      return u.href;
+    } catch (e) {
+      // treat as search query on DuckDuckGo
+      return 'https://duckduckgo.com/?q=' + encodeURIComponent(val);
+    }
+  }
+
+  function openProxy() {
+    const val = document.getElementById('q').value.trim();
+    if (!val) return;
+    const target = makeTarget(val);
+    const prox = `${PROXY_BASE}/proxy?url=${encodeURIComponent(target)}`;
+    viewer.src = prox;
+    viewer.style.display = 'block';
+  }
+
+  function openDirect() {
+    const val = document.getElementById('q').value.trim();
+    if (!val) return;
+    const target = makeTarget(val);
+    window.open(target, '_blank');
+  }
+</script>
+</body>
+</html>
