@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
   <style>
-    body {
-      background-color: #222; /* dark gray background */
-      color: white;
-      font-family: Arial, sans-serif;
+    html, body {
+      height: 100%;
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      zoom: 1.2; /* zooms in the whole page */
+      background-color: #222; /* dark gray background */
+      color: white;
+      font-family: Arial, sans-serif;
+      zoom: 1.2; /* zoom in the whole page */
+      overflow: hidden; /* prevent scrolling */
     }
 
     .login-box {
@@ -81,17 +82,13 @@
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      // Demo login credentials
-      if(username === "user" && password === "pass") {
+      // Updated credentials
+      if(username === "EeshaqB" && password === "Eeshaq2014#?") {
         window.location.href = "duck.html"; // Redirect to DuckDuckGo viewer
       } else {
         alert("Invalid credentials");
       }
     }
   </script>
-</body>
-</html>
-}
-</script>
 </body>
 </html>
